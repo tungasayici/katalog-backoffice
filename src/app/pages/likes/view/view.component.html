@@ -1,0 +1,36 @@
+<nb-card>
+  <nb-card-header>
+    Likes
+  </nb-card-header>
+  
+  <nb-card-body>
+      <toaster-container [toasterconfig]="config"></toaster-container>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col"> Consumer </th>
+            <th scope="col"> Product </th>
+            <th scope="col"> Up Vote </th>
+            <th scope="col">Created Time</th>
+            <th scope="col">Updated Time</th>
+            <th scope="col"> Action </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of rows">
+            <th scope="row">{{row.id}}</th>
+            <td>{{row.consumer.userName}}</td>
+            <td>{{row.product.title}}</td>
+            <td>{{row.upVote}}</td>
+            <td [innerHtml]="formatDate(row.createdTime)"></td>
+            <td [innerHtml]="formatDate(row.updatedTime)"></td>
+            <td>
+              <a href="#/pages/likes/edit/{{row.id}}">edit</a> -
+              <a href="#/pages/likes/view" (click)="delete(row.id)">delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </nb-card-body>
+  </nb-card>

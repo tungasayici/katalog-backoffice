@@ -1,0 +1,97 @@
+<nb-card>
+  <nb-card-header>
+    Edit Product 
+  </nb-card-header>
+
+  <nb-card-body>
+    <toaster-container [toasterconfig]="config"></toaster-container>
+    <form [formGroup]='editForm' (ngSubmit)="onSubmit()">
+      <div class="form-group" data-validate="User name is required">
+        <label>User Name</label>
+        <input formControlName='userName' type="text" class="form-control" placeholder="Enter display name">
+        <div *ngIf="editForm.controls['userName'].touched && !editForm.controls['userName'].valid">
+          <small *ngIf="editForm.controls['userName'].hasError('required')" class="form-text text-muted">
+            User Name is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group" data-validate="Password is required">
+        <label>Password</label>
+        <input formControlName='password' type="text" class="form-control" placeholder="Enter password">
+        <div *ngIf="editForm.controls['password'].touched && !editForm.controls['password'].valid">
+          <small *ngIf="editForm.controls['password'].hasError('required')" class="form-text text-muted">
+            Password is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group" data-validate="Full name is required">
+        <label>Full Name</label>
+        <input formControlName='fullName' type="text" class="form-control" placeholder="Enter full name">
+        <div *ngIf="editForm.controls['fullName'].touched && !editForm.controls['fullName'].valid">
+          <small *ngIf="editForm.controls['fullName'].hasError('required')" class="form-text text-muted">
+            Full name is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group" data-validate="Email is required">
+        <label>Email</label>
+        <input formControlName='email' type="text" class="form-control" placeholder="Enter email">
+        <div *ngIf="editForm.controls['email'].touched && !editForm.controls['email'].valid">
+          <small *ngIf="editForm.controls['email'].hasError('required')" class="form-text text-muted">
+            Email is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group" data-validate="Job Title is required">
+        <label>Job Title</label>
+        <input formControlName='jobTitle' type="text" class="form-control" placeholder="Enter job title">
+        <div *ngIf="editForm.controls['jobTitle'].touched && !editForm.controls['jobTitle'].valid">
+          <small *ngIf="editForm.controls['jobTitle'].hasError('required')" class="form-text text-muted">
+            Job Title is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group" data-validate="Biography is required">
+        <label>Biography</label>
+        <input formControlName='bio' type="text" class="form-control" placeholder="Enter Biography">
+        <div *ngIf="editForm.controls['bio'].touched && !editForm.controls['bio'].valid">
+          <small *ngIf="editForm.controls['bio'].hasError('required')" class="form-text text-muted">
+            Biography is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group" data-validate="Profile Url is required">
+        <label>Profile Url</label>
+        <input formControlName='profileUrl' type="text" class="form-control" placeholder="Enter Profile Url">
+        <div *ngIf="editForm.controls['profileUrl'].touched && !editForm.controls['profileUrl'].valid">
+          <small *ngIf="editForm.controls['profileUrl'].hasError('required')" class="form-text text-muted">
+            Profile Url is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group" data-validate="Company Name is required">
+        <label>Company Name</label>
+        <input formControlName='companyName' type="text" class="form-control" placeholder="Enter Company Name">
+        <div *ngIf="editForm.controls['companyName'].touched && !editForm.controls['companyName'].valid">
+          <small *ngIf="editForm.controls['companyName'].hasError('required')" class="form-text text-muted">
+            Company Name is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-check">
+        <input formControlName='active' type="checkbox" class="form-check-input">
+        <label class="form-check-label">Active</label>
+      </div>
+      
+      <input type="Submit" value="Save" onclick="window.location.href='http://localhost:4200/#/pages/consumer/view'" [disabled]='!editForm.valid' class="btn btn-primary" />
+    </form>
+  </nb-card-body>
+</nb-card>

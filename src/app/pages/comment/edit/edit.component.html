@@ -1,0 +1,67 @@
+<nb-card>
+  <nb-card-header>
+    Edit Comment 
+  </nb-card-header>
+
+  <nb-card-body>
+    <toaster-container [toasterconfig]="config"></toaster-container>
+    <form [formGroup]='editForm' (ngSubmit)="onSubmit()">
+      <div class="form-group" data-validate="Product Id is required">
+        <label>Product Id</label>
+        <input formControlName='productId' type="text" class="form-control" placeholder="Enter product Id">
+        <div *ngIf="editForm.controls['productId'].touched && !editForm.controls['productId'].valid">
+          <small *ngIf="editForm.controls['productId'].hasError('required')" class="form-text text-muted">
+            Product Id is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group" data-validate="Consumer Id is required">
+          <label>Consumer Id</label>
+          <input formControlName='consumerId' type="text" class="form-control" placeholder="Enter Consumer Id">
+          <div *ngIf="editForm.controls['consumerId'].touched && !editForm.controls['consumerId'].valid">
+            <small *ngIf="editForm.controls['consumerId'].hasError('required')" class="form-text text-muted">
+                Consumer Id is required
+            </small>
+          </div>
+        </div>
+
+      <div class="form-group" data-validate="Consumer is required">
+        <label>Consumer</label>
+        <input formControlName='cons' type="text" class="form-control" placeholder="Enter consumer">
+        <div *ngIf="editForm.controls['cons'].touched && !editForm.controls['cons'].valid">
+          <small *ngIf="editForm.controls['cons'].hasError('required')" class="form-text text-muted">
+            Consumer is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group" data-validate="Content is required">
+        <label>Content</label>
+        <input formControlName='content' type="text" class="form-control" placeholder="Enter content">
+        <div *ngIf="editForm.controls['content'].touched && !editForm.controls['content'].valid">
+          <small *ngIf="editForm.controls['content'].hasError('required')" class="form-text text-muted">
+            Content is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group" data-validate="Pros is required">
+        <label>Pros</label>
+        <input formControlName='pros' type="text" class="form-control" placeholder="Enter pros">
+        <div *ngIf="editForm.controls['pros'].touched && !editForm.controls['pros'].valid">
+          <small *ngIf="editForm.controls['pros'].hasError('required')" class="form-text text-muted">
+            Pros is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-check">
+        <input formControlName='active' type="checkbox" class="form-check-input">
+        <label class="form-check-label">Active</label>
+      </div>
+      
+      <input type="Submit" value="Save" onclick="window.location.href='http://localhost:4200/#/pages/comment/view'" [disabled]='!editForm.valid' class="btn btn-primary" />
+    </form>
+  </nb-card-body>
+</nb-card>

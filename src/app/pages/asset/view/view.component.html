@@ -1,0 +1,32 @@
+<nb-card>
+  <nb-card-header>
+    Assets
+    <a [routerLink]="['../create']" class="float-right">
+      <i class="fa fa-plus-circle" style="font-size: 25px" aria-hidden="true"></i>
+    </a>
+  </nb-card-header>
+
+  <nb-card-body>
+    <toaster-container [toasterconfig]="config"></toaster-container>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col"> Asset Type </th>
+          <th scope="col"> File Url </th>
+          <th scope="col"> Product Id </th>
+          <th scope="col"> Actions </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows">
+          <th scope="row">{{row.id}}</th>
+          <td>{{row.assetType}}</td>
+          <td>{{row.fileUrl}}</td>
+          <td> {{row.productId}} </td>
+          <td><a href="#/pages/asset/edit/{{row.id}}">edit</a> - <a href="#/pages/asset/view" (click)="delete(row.id)">delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,335 @@
+<nb-card>
+  <nb-card-header>
+    Create Product
+   
+  </nb-card-header>
+
+  <nb-card-body>
+    <toaster-container [toasterconfig]="config"></toaster-container>
+
+    <nb-tabset>
+      
+      <nb-tab tabTitle="Add General Proporties">
+        <h2></h2>
+        <form [formGroup]='editForm' (ngSubmit)="onSubmit()">
+
+          <div class="form-group" data-validate="Title is required">
+            <label> Title </label>
+            <input formControlName='title' type="text" class="form-control" placeholder="Enter title">
+            <div *ngIf="editForm.controls['title'].touched && !editForm.controls['title'].valid">
+              <small *ngIf="editForm.controls['title'].hasError('required')" class="form-text text-muted">
+                Title is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="Type is required">
+            <label> Type </label>
+            <input formControlName='type' type="text" class="form-control" placeholder="Enter type">
+            <div *ngIf="editForm.controls['type'].touched && !editForm.controls['type'].valid">
+              <small *ngIf="editForm.controls['type'].hasError('required')" class="form-text text-muted">
+                Type is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="Tag is required">
+            <label> Tag </label>
+            <input formControlName='tags' type="text" class="form-control" placeholder="Enter tag">
+            <div *ngIf="editForm.controls['tags'].touched && !editForm.controls['tags'].valid">
+              <small *ngIf="editForm.controls['tags'].hasError('required')" class="form-text text-muted">
+                Tag is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="Consumer Id is required">
+            <label> Consumer Id </label>
+            <input formControlName='consumerId' type="text" class="form-control" placeholder="Enter consumer Id">
+            <div *ngIf="editForm.controls['consumerId'].touched && !editForm.controls['consumerId'].valid">
+              <small *ngIf="editForm.controls['consumerId'].hasError('required')" class="form-text text-muted">
+                Consumer Id is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="Description is required">
+            <label> Description </label>
+            <input formControlName='description' type="text" class="form-control" placeholder="Enter description">
+            <div *ngIf="editForm.controls['description'].touched && !editForm.controls['description'].valid">
+              <small *ngIf="editForm.controls['description'].hasError('required')" class="form-text text-muted">
+                Description is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="Difficulty is required">
+            <label> Difficulty </label>
+            <input formControlName='difficulty' type="text" class="form-control" placeholder="Enter difficulty">
+            <div *ngIf="editForm.controls['difficulty'].touched && !editForm.controls['difficulty'].valid">
+              <small *ngIf="editForm.controls['difficulty'].hasError('required')" class="form-text text-muted">
+                Difficulty is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="Image url is required">
+            <label> Image Url </label>
+            <input formControlName='imageUrl' type="text" class="form-control" placeholder="Enter image url">
+            <div *ngIf="editForm.controls['imageUrl'].touched && !editForm.controls['imageUrl'].valid">
+              <small *ngIf="editForm.controls['imageUrl'].hasError('required')" class="form-text text-muted">
+                is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="Url is required">
+            <label> Url </label>
+            <input formControlName='url' type="text" class="form-control" placeholder="Enter url">
+            <div *ngIf="editForm.controls['url'].touched && !editForm.controls['url'].valid">
+              <small *ngIf="editForm.controls['url'].hasError('required')" class="form-text text-muted">
+                Url is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="Price is required">
+            <label> Price </label>
+            <input formControlName='price' type="text" class="form-control" placeholder="Enter price">
+            <div *ngIf="editForm.controls['price'].touched && !editForm.controls['price'].valid">
+              <small *ngIf="editForm.controls['price'].hasError('required')" class="form-text text-muted">
+                Price is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="Is Suitable For DG is required">
+            <label> Is suitable for DG </label>
+            <input formControlName='isSuitableForDG' type="text" class="form-control" placeholder="Enter 'is suitable for DG'">
+            <div *ngIf="editForm.controls['isSuitableForDG'].touched && !editForm.controls['isSuitableForDG'].valid">
+              <small *ngIf="editForm.controls['isSuitableForDG'].hasError('required')" class="form-text text-muted">
+                isSuitableForDG is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="Comment Count is required">
+            <label> Comment Count </label>
+            <input formControlName='commentCount' type="text" class="form-control" placeholder="Enter comment count">
+            <div *ngIf="editForm.controls['commentCount'].touched && !editForm.controls['commentCount'].valid">
+              <small *ngIf="editForm.controls['commentCount'].hasError('required')" class="form-text text-muted">
+                Comment Count is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="UpVote Count is required">
+            <label> UpVote Count </label>
+            <input formControlName='upVoteCount' type="text" class="form-control" placeholder="Enter upVote Count">
+            <div *ngIf="editForm.controls['upVoteCount'].touched && !editForm.controls['upVoteCount'].valid">
+              <small *ngIf="editForm.controls['upVoteCount'].hasError('required')" class="form-text text-muted">
+                UpVote Count is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="DownVote Count is required">
+            <label> DownVote Count </label>
+            <input formControlName='downVoteCount' type="text" class="form-control" placeholder="Enter downVote Count">
+            <div *ngIf="editForm.controls['downVoteCount'].touched && !editForm.controls['downVoteCount'].valid">
+              <small *ngIf="editForm.controls['downVoteCount'].hasError('required')" class="form-text text-muted">
+                DownVote Count is required
+              </small>
+            </div>
+          </div>
+
+          <!-- <div class="form-group" data-validate="createdAt is required">
+            <label> Created At </label>
+            <input formControlName='createdAt' type="text" class="form-control" placeholder="Enter createdAt">
+            <div *ngIf="editForm.controls['createdAt'].touched && !editForm.controls['createdAt'].valid">
+              <small *ngIf="editForm.controls['createdAt'].hasError('required')" class="form-text text-muted">
+                createdAt is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="createdTime is required">
+            <label> Created Time </label>
+            <input formControlName='createdTime' type="text" class="form-control" placeholder="Enter createdTime">
+            <div *ngIf="editForm.controls['createdTime'].touched && !editForm.controls['createdTime'].valid">
+              <small *ngIf="editForm.controls['createdTime'].hasError('required')" class="form-text text-muted">
+                createdTime is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="updatedAt is required">
+            <label> Updated At </label>
+            <input formControlName='updatedAt' type="text" class="form-control" placeholder="Enter updatedAt">
+            <div *ngIf="editForm.controls['updatedAt'].touched && !editForm.controls['updatedAt'].valid">
+              <small *ngIf="editForm.controls['updatedAt'].hasError('required')" class="form-text text-muted">
+                updatedAt is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="updatedTime is required">
+            <label> Updated Time </label>
+            <input formControlName='updatedTime' type="text" class="form-control" placeholder="Enter updatedTime">
+            <div *ngIf="editForm.controls['updatedTime'].touched && !editForm.controls['updatedTime'].valid">
+              <small *ngIf="editForm.controls['updatedTime'].hasError('required')" class="form-text text-muted">
+                updatedTime is required
+              </small>
+            </div>
+          </div> -->
+
+          <div class="form-check">
+            <input formControlName='active' type="checkbox" class="form-check-input">
+            <label class="form-check-label">Active</label>
+          </div>
+          <input type="Submit" value="Save" onclick="window.location.href='http://localhost:4200/#/pages/product/view'" [disabled]='!editForm.valid'
+          class="btn btn-primary float-right" />
+        </form>
+
+      </nb-tab>
+      
+      <nb-tab tabTitle="Add Investent Logs">
+        <h2></h2>
+        <form [formGroup]='editForm' (ngSubmit)="onSubmit()">
+
+          <!-- <div class="form-group" data-validate="Id is required">
+            <label> Id </label>
+            <input formControlName='Id' type="text" class="form-control" placeholder="Enter Id">
+            <div *ngIf="editForm.controls['Id'].touched && !editForm.controls['Id'].valid">
+              <small *ngIf="editForm.controls['Id'].hasError('required')" class="form-text text-muted">
+                Id is required
+              </small>
+            </div>
+          </div> -->
+
+          <div class="form-group" data-validate="investmentNeed is required">
+            <label> Investment Need </label>
+            <input formControlName='investmentNeed' type="text" class="form-control" placeholder="Enter investment Need">
+            <div *ngIf="editForm.controls['investmentNeed'].touched && !editForm.controls['investmentNeed'].valid">
+              <small *ngIf="editForm.controls['investmentNeed'].hasError('required')" class="form-text text-muted">
+                Investment Need is required
+              </small>
+            </div>
+          </div>
+
+          <!-- <div class="form-group" data-validate="product Id is required">
+            <label> Product Id </label>
+            <input formControlName='productId' type="text" class="form-control" placeholder="Enter productId">
+            <div *ngIf="editForm.controls['productId'].touched && !editForm.controls['productId'].valid">
+              <small *ngIf="editForm.controls['productId'].hasError('required')" class="form-text text-muted">
+                product Id is required
+              </small>
+            </div>
+          </div> -->
+
+          <div class="form-group" data-validate="note is required">
+            <label> Note </label>
+            <input formControlName='note' type="text" class="form-control" placeholder="Enter note">
+            <div *ngIf="editForm.controls['note'].touched && !editForm.controls['note'].valid">
+              <small *ngIf="editForm.controls['note'].hasError('required')" class="form-text text-muted">
+                Note is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="scanned Date is required">
+            <label> Scanned Date </label>
+            <input formControlName='scannedDate' type="text" class="form-control" placeholder="Enter scannedDate">
+            <div *ngIf="editForm.controls['scannedDate'].touched && !editForm.controls['scannedDate'].valid">
+              <small *ngIf="editForm.controls['scannedDate'].hasError('required')" class="form-text text-muted">
+                Scanned Date is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="value is required">
+            <label> Value </label>
+            <input formControlName='value' type="text" class="form-control" placeholder="Enter value">
+            <div *ngIf="editForm.controls['value'].touched && !editForm.controls['value'].valid">
+              <small *ngIf="editForm.controls['value'].hasError('required')" class="form-text text-muted">
+                value is required
+              </small>
+            </div>
+          </div>
+
+          <!-- <div class="form-group" data-validate="logUpdatedAt is required">
+            <label> Updated At </label>
+            <input formControlName='logUpdatedAt' type="text" class="form-control" placeholder="Enter log Update dAt">
+            <div *ngIf="editForm.controls['logUpdatedAt'].touched && !editForm.controls['logUpdatedAt'].valid">
+              <small *ngIf="editForm.controls['logUpdatedAt'].hasError('required')" class="form-text text-muted">
+                Updated At is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="logCreatedAt is required">
+            <label> Created At </label>
+            <input formControlName='logCreatedAt' type="text" class="form-control" placeholder="Enter log Created At">
+            <div *ngIf="editForm.controls['logCreatedAt'].touched && !editForm.controls['logCreatedAt'].valid">
+              <small *ngIf="editForm.controls['logCreatedAt'].hasError('required')" class="form-text text-muted">
+                Created At is required
+              </small>
+            </div>
+          </div> -->
+
+        </form>
+      </nb-tab>
+
+      <nb-tab tabTitle="Add Assets">
+        <h2></h2>
+        <form [formGroup]='editForm' (ngSubmit)="onSubmit()">
+
+          <!-- <div class="form-group" data-validate="Id is required">
+                <label> ID </label>
+                <input formControlName='id' type="text" class="form-control" placeholder="Enter id">
+                <div *ngIf="editForm.controls['id'].touched && !editForm.controls['id'].valid">
+                  <small *ngIf="editForm.controls['id'].hasError('required')" class="form-text text-muted">
+                    ID is required
+                  </small>
+                </div>
+              </div> -->
+
+          <div class="form-group" data-validate="asset Type is required">
+            <label> Asset Type </label>
+            <input formControlName='assetType' type="text" class="form-control" placeholder="Enter assetType">
+            <div *ngIf="editForm.controls['assetType'].touched && !editForm.controls['assetType'].valid">
+              <small *ngIf="editForm.controls['assetType'].hasError('required')" class="form-text text-muted">
+                Asset Type is required
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group" data-validate="file Url is required">
+            <label> File Url </label>
+            <input formControlName='fileUrl' type="text" class="form-control" placeholder="Enter fileUrl">
+            <div *ngIf="editForm.controls['fileUrl'].touched && !editForm.controls['fileUrl'].valid">
+              <small *ngIf="editForm.controls['fileUrl'].hasError('required')" class="form-text text-muted">
+                File Url is required
+              </small>
+            </div>
+          </div>
+          <!-- 
+          <div class="form-group" data-validate="productId is required">
+            <label> Product Id </label>
+            <input formControlName='productId' type="text" class="form-control" placeholder="Enter productId">
+            <div *ngIf="editForm.controls['productId'].touched && !editForm.controls['productId'].valid">
+              <small *ngIf="editForm.controls['productId'].hasError('required')" class="form-text text-muted">
+                Product Id is required
+              </small>
+            </div>
+          </div> -->
+
+        </form>
+
+      </nb-tab>
+
+    </nb-tabset>
+
+  </nb-card-body>
+
+</nb-card>

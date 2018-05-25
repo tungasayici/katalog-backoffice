@@ -1,0 +1,178 @@
+<nb-card>
+  <nb-card-header>
+    Product
+  </nb-card-header>
+
+  <nb-card-body>
+
+    <nb-tabset>
+      <nb-tab tabTitle="Proporties">
+
+        <table class="table table-striped">
+
+          <tbody *ngFor="let row of rows">
+            <tr>
+              <th> ID </th>
+              <td> {{row.product.id}} </td>
+            </tr>
+            <tr>
+              <th> Title </th>
+              <td> {{row.product.title}} </td>
+            </tr>
+            <tr>
+              <th> Type </th>
+              <td> {{row.product.type}} </td>
+            </tr>
+            <tr>
+              <th> Tags </th>
+              <td>{{row.product.tags}}</td>
+            </tr>
+            <tr>
+              <th> Difficulty </th>
+              <td>{{row.product.difficulty}}</td>
+            </tr>
+            <tr>
+              <th> Description </th>
+              <td>{{row.product.description}}</td>
+            </tr>
+            <tr>
+              <th> Consumer ID </th>
+              <td>{{row.product.consumerId}}</td>
+            </tr>
+            <tr>
+              <th> Is Suitable For DG </th>
+              <td>{{row.product.isSuitableForDG}}</td>
+            </tr>
+            <tr>
+              <th> Image URL </th>
+              <td>{{row.product.imageUrl}}</td>
+            </tr>
+            <tr>
+              <th> Price </th>
+              <td>{{row.product.price}}</td>
+            </tr>
+            <tr>
+              <th> Comment Count </th>
+              <td>{{row.product.commentCount}}</td>
+            </tr>
+            <tr>
+              <th> Upvote Count </th>
+              <td>{{row.product.upVoteCount}}</td>
+            </tr>
+            <tr>
+              <th> Downvote Count </th>
+              <td>{{row.product.downVoteCount}}</td>
+            </tr>
+            <tr>
+              <th> Active </th>
+              <td>{{row.product.active}}</td>
+            </tr>
+
+            <tr>
+              <th> Created Time</th>
+              <th>{{row.product.createdTime}}</th>
+            </tr>
+
+            <tr>
+                <th> Updated Time </th>
+                <th>{{row.product.updatedTime}}</th>
+              </tr>
+
+              <tr>
+                  <th> Created At</th>
+                  <th>{{row.product.createdAt}}</th>
+                </tr>
+
+                <tr>
+                    <th> Updated At </th>
+                    <th>{{row.product.updatedAt}}</th>
+                  </tr>
+
+          </tbody>
+        </table>
+
+      </nb-tab>
+
+      <nb-tab tabTitle="Investment Log List">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col"> ID </th>
+                  <th scope="col"> Investment Need </th>
+                  <th scope="col"> Note </th>
+                  <th scope="col"> Value </th>
+                  <th scope="col"> Scanned Date </th>
+                  <th scope="col"> Created At </th>
+                  <th scope="col"> Updated At </th>                  
+                </tr>
+              </thead>
+              <tbody *ngFor="let row of rows">
+                <tr *ngFor="let list of row.investmentLogList">
+                  <th scope="row"> {{list.id}} </th>          
+                  <td> {{list.investmentNeed}} </td>
+                  <td> {{list.note}} </td>
+                  <td> {{list.value}} </td>
+                  <td> {{list.scannedDate}} </td>
+                  <td> {{list.createdAt}} </td>
+                  <td> {{list.updatedAt}} </td>                  
+                </tr>
+              </tbody>
+        </table>
+
+      </nb-tab>
+
+      <nb-tab tabTitle="Asset List">
+        
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                    <th scope="col"> ID </th>
+                    <th scope="col"> Asset Type </th>
+                    <th scope="col"> File URL </th>
+                    <th scope="col"> Created At </th>
+                    <th scope="col"> Updated At </th>                  
+                  </tr>
+                </thead>
+                <tbody *ngFor="let row of rows">
+                  <tr *ngFor="let list of row.assetList">
+                    <th scope="row"> {{list.id}} </th>          
+                    <td> {{list.assetType}} </td>
+                    <td> {{list.fileUrl}} </td>
+                    <td> {{list.createdAt}} </td>
+                    <td> {{list.updatedAt}} </td>                  
+                  </tr>
+                </tbody>
+          </table>
+
+      </nb-tab>
+
+      <nb-tab tabTitle="Likes List">
+        
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                    <th scope="col"> ID </th>
+                    <th scope="col"> Consumer </th>
+                    <th scope="col"> Upvote </th>
+                    <th scope="col"> Created At </th>
+                    <th scope="col"> Updated At </th>                  
+                  </tr>
+                </thead>
+                <tbody *ngFor="let row of rows">
+                  <tr *ngFor="let list of row.likesList">
+                    <th scope="row"> {{list.id}} </th>          
+                    <td> {{list.consumer}} </td>
+                    <td> {{list.upVote}} </td>
+                    <td> {{list.createdTime}} </td>
+                    <td> {{list.updatedTime}} </td>                  
+                  </tr>
+                </tbody>
+          </table>
+
+      </nb-tab>
+
+    </nb-tabset>
+
+  </nb-card-body>
+</nb-card>

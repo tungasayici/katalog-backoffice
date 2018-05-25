@@ -1,0 +1,37 @@
+<nb-card>
+  <nb-card-header>
+    Edit Like
+  </nb-card-header>
+
+  <nb-card-body>
+    <toaster-container [toasterconfig]="config"></toaster-container>
+    <form [formGroup]='editForm' (ngSubmit)="onSubmit()">
+      <div class="form-group" data-validate="Likes Type is required">
+        <label>Consumer</label>
+        <input formControlName='consumer' type="text" class="form-control" placeholder="Enter Consumer">
+        <div *ngIf="editForm.controls['consumer'].touched && !editForm.controls['consumer'].valid">
+          <small *ngIf="editForm.controls['consumer'].hasError('required')" class="form-text text-muted">
+              Consumer is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group" data-validate="File Url is required">
+        <label>Product</label>
+        <input formControlName='product' type="text" class="form-control" placeholder="Enter Product">
+        <div *ngIf="editForm.controls['product'].touched && !editForm.controls['product'].valid">
+          <small *ngIf="editForm.controls['product'].hasError('required')" class="form-text text-muted">
+            Product is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-check">
+          <input formControlName='upVote' type="checkbox" class="form-check-input">
+          <label class="form-check-label">UpVote</label>
+        </div>
+
+      <input type="Submit" value="Save" onclick="window.location.href='http://localhost:4200/#/pages/likes/view'" [disabled]='!editForm.valid' class="btn btn-primary" />
+    </form>
+  </nb-card-body>
+</nb-card>

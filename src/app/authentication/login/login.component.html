@@ -1,0 +1,57 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-form-title" style="background-image: url(../../../assets/images/bg-01.jpg);">
+        <span class="login100-form-title-1">
+          AKTİVİDO BACKOFFICE
+        </span>
+      </div>
+
+      <div class="login100-form validate-form" style="padding: 61px 87px 0px 192px;margin-bottom: -44px;">
+        <div class="wrap-input100 validate-input m-b-26" style="border:0px">
+          <span class="label-input100">Environment</span>
+          <select style="padding:0.15rem 0.125rem" [(ngModel)]="serverValue" class="form-control form-control-sm">
+            <option value="0">Production</option>
+            <option value="1">Development</option>
+          </select>
+        </div>
+      </div>
+
+      <form [formGroup]='loginForm' (ngSubmit)="onSubmit()" class="login100-form validate-form">
+        <div class="wrap-input100 validate-input m-b-26" data-validate="Email is required">
+          <span class="label-input100">Email</span>
+          <input formControlName='username' class="input100" type="text" placeholder="Enter email address">
+          <span class="focus-input100"></span>
+        </div>
+        <div *ngIf="loginForm.controls['username'].touched && !loginForm.controls['username'].valid">
+          <span class="subtext" *ngIf="loginForm.controls['username'].hasError('required') ">
+            Email is required
+          </span>
+          <span *ngIf="loginForm.controls['username'].hasError('minlength') ">
+            Min length is 1
+          </span>
+        </div>
+
+        <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+          <span class="label-input100">Password</span>
+          <input formControlName='password' class="input100" type="password" placeholder="Enter password">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div *ngIf="loginForm.controls['username'].touched && !loginForm.controls['username'].valid">
+          <span class="subtext" *ngIf="loginForm.controls['username'].hasError('required') ">
+            Password is required
+          </span>
+          <span *ngIf="loginForm.controls['username'].hasError('minlength') ">
+            Min length is 1
+          </span>
+        </div>
+
+
+        <div class="container-login100-form-btn">
+          <input type="Submit" value="Login" [disabled]='!loginForm.valid' class="login100-form-btn">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

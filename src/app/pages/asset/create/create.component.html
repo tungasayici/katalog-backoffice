@@ -1,0 +1,32 @@
+<nb-card>
+  <nb-card-header>
+    Create Asset 
+  </nb-card-header>
+
+  <nb-card-body>
+    <toaster-container [toasterconfig]="config"></toaster-container>
+    <form [formGroup]='editForm' (ngSubmit)="onSubmit()">
+      <div class="form-group" data-validate="Asset Type is required">
+        <label>Asset Type</label>
+        <input formControlName='assetType' type="text" class="form-control" placeholder="Enter Asset Type">
+        <div *ngIf="editForm.controls['assetType'].touched && !editForm.controls['assetType'].valid">
+          <small *ngIf="editForm.controls['assetType'].hasError('required')" class="form-text text-muted">
+            Asset Type is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group" data-validate="File Url is required">
+        <label>File Url</label>
+        <input formControlName='fileUrl' type="text" class="form-control" placeholder="Enter File Url">
+        <div *ngIf="editForm.controls['fileUrl'].touched && !editForm.controls['fileUrl'].valid">
+          <small *ngIf="editForm.controls['fileUrl'].hasError('required')" class="form-text text-muted">
+            File Url is required
+          </small>
+        </div>
+      </div>
+
+      <input type="Submit" value="Save" onclick="window.location.href='http://localhost:4200/#/pages/asset/view'" [disabled]='!editForm.valid' class="btn btn-primary" />
+    </form>
+  </nb-card-body>
+</nb-card>

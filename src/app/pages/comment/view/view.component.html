@@ -1,0 +1,39 @@
+<nb-card>
+  <nb-card-header>
+    Comments
+  </nb-card-header>
+
+  <nb-card-body>
+    <toaster-container [toasterconfig]="config"></toaster-container>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col"> product Id </th>
+          <th scope="col"> Cons </th>
+          <th scope="col"> Consumer Id </th>
+          <th scope="col"> Content </th>
+          <th scope="col"> Pros </th>
+          <th scope="col"> Active </th>
+          <th scope="col"> Created Time </th>
+          <th scope="col"> Updated Time </th>
+          <th scope="col"> Action </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows">
+          <th scope="row">{{row.id}}</th>
+          <td>{{row.productId}}</td>
+          <td>{{row.cons}}</td>
+          <td>{{row.consumerId}}</td>
+          <td>{{row.content}}</td>
+          <td>{{row.pros}}</td>
+          <td>{{row.active}}</td>
+          <td [innerHtml]="formatDate(row.createdTime)"></td>
+          <td [innerHtml]="formatDate(row.updatedTime)"></td>
+          <td><a href="#/pages/comment/edit/{{row.id}}">edit</a> - <a href="#/pages/comment/view" (click)="delete(row.id)">delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </nb-card-body>
+</nb-card>

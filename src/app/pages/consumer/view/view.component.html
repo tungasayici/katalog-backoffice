@@ -1,0 +1,44 @@
+<nb-card>
+  <nb-card-header>
+    Consumers
+    <a [routerLink]="['../create']" class="float-right">
+      <i class="fa fa-plus-circle" style="font-size: 25px" aria-hidden="true"></i>
+    </a>
+  </nb-card-header>
+
+  <nb-card-body>
+    <toaster-container [toasterconfig]="config"></toaster-container>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col"> UserName </th>
+          <th scope="col"> Full Name </th>
+          <th scope="col"> Email </th>
+          <th scope="col"> Password </th>
+          <th scope="col"> Bio </th>
+          <th scope="col"> Company Name </th>
+          <th scope="col"> Job Title </th>
+          <th scope="col"> Profile Url </th>
+          <th scope="col"> Active </th>
+          <th scope="col"> Action </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows">
+          <th scope="row">{{row.id}}</th>
+          <td>{{row.userName}}</td>
+          <td>{{row.fullName}}</td>
+          <td>{{row.email}}</td>
+          <td>{{row.password}}</td>
+          <td>{{row.bio}}</td>
+          <td>{{row.companyName}}</td>
+          <td>{{row.jobTitle}}</td>
+          <td>{{row.profileUrl}}</td>
+          <th>{{row.active}}</th>
+          <td><a href="#/pages/consumer/edit/{{row.id}}">edit</a> - <a href="#/pages/consumer/view" (click)="delete(row.id)">delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </nb-card-body>
+</nb-card>

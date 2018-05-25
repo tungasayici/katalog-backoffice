@@ -1,0 +1,50 @@
+<nb-card>
+    <nb-card-header>
+      Active Products
+      <a [routerLink]="['../create']" class="float-right">
+        <i class="fa fa-plus-circle" style="font-size: 25px" aria-hidden="true"></i>
+      </a>
+    </nb-card-header>
+  
+    <nb-card-body>
+      <toaster-container [toasterconfig]="config"></toaster-container>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col"> Title </th>
+            <th scope="col"> Type </th>
+            <th scope="col"> Tags </th>
+            <th scope="col"> Difficulty </th>
+            <th scope="col"> Description </th>
+            <th scope="col"> Is Suitable For DG </th>
+            <th scope="col"> Consumer </th>
+            <th scope="col"> Price </th>
+            <th scope="col"> Active </th>
+            <th scope="col"> Created Time </th>
+            <th scope="col"> Updated Time </th>
+            <th scope="col"> Action </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of rows">
+            <th scope="row">{{row.product.id}}</th>
+            <td>{{row.product.title}}</td>
+            <td>{{row.product.type}}</td>
+            <td>{{row.product.tags}}</td>
+            <td>{{row.product.difficulty}}</td>
+            <td>{{row.product.description}}</td>
+            <td>{{row.product.isSuitableForDG}}</td>
+            <td>{{row.product.consumerId}}</td>
+            <td>{{row.product.price}}</td>
+            <td>{{row.product.active}}</td>
+            <td [innerHtml]="formatDate(row.createdTime)"></td>
+            <td [innerHtml]="formatDate(row.updatedTime)"></td>
+            <td>
+              <a href="#/pages/product/viewProduct/{{row.product.id}}">view</a> - <a href="#/pages/product/edit/{{row.product.id}}">edit</a> - <a href="#/pages/product/view" (click)="delete(row.product.id)">delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </nb-card-body>
+  </nb-card>
